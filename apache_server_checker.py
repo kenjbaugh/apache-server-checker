@@ -2,13 +2,21 @@
 
 import subprocess
 
-cmd1 = "systemctl status httpd"
-cmd2 = "systemctl start httpd"
+server_version = "httpd -v"
 
-success = subprocess.call(cmd1, shell=True)
-start = subprocess.call(cmd2, shell=True)
+version_status = subprocess.call(server_version, shell=True)
+print(version_status)
+
+
+server_status = "systemctl status httpd"
+run_service = "systemctl start httpd"
+
+success = subprocess.call(server_status, shell=True)
+start = subprocess.call(run_service, shell=True)
 
 if success == True:
-        print("Web Server is running properly", success)
+	print("Web Server is running properly", success)
+
 else:
-        print("Server not running. Attempting to start service", start)
+	if success == False:
+		print("Server not currently running. Attempting to start httpd service", start)
