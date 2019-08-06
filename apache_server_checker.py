@@ -18,5 +18,4 @@ if success == True:
 	print("Web Server is running properly", success)
 
 else:
-	if success == False:
-		print("Server not currently running. Attempting to start httpd service", start)
+	print("Server not currently running. Attempting to start httpd service", start)
